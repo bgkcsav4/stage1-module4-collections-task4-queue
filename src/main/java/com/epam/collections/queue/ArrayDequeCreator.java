@@ -8,8 +8,8 @@ import java.util.Queue;
             ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
 
             while (!firstQueue.isEmpty() && !secondQueue.isEmpty()) {
-                arrayDeque.add(firstQueue.poll()); // Player 1 takes the top card from the ArrayDeque and adds it to their queue.
-                arrayDeque.add(secondQueue.poll()); // Player 2 takes the top card from the ArrayDeque and adds it to their queue.
+                firstQueue.add(arrayDeque.poll());
+                secondQueue.add(arrayDeque.poll());
 
                 // Player 1 puts two cards from the beginning of their queue into the ArrayDeque.
                 arrayDeque.add(firstQueue.poll());
