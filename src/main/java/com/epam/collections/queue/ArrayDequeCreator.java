@@ -11,14 +11,21 @@ import java.util.Queue;
             while (!firstQueue.isEmpty() && !secondQueue.isEmpty()) {
                 firstQueue.add(arrayDeque.poll());
                 secondQueue.add(arrayDeque.poll());
-
                 // Player 1 puts two cards from the beginning of their queue into the ArrayDeque.
-                arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
-                arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
+                if (!firstQueue.isEmpty()) {
+                    arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
+                }
+                if (!firstQueue.isEmpty()) {
+                    arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
+                }
 
                 // Player 2 puts two cards from the beginning of their queue into the ArrayDeque.
-                arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
-                arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
+                if (!secondQueue.isEmpty()) {
+                    arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
+                }
+                if (!secondQueue.isEmpty()) {
+                    arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
+                }
             }
 
             return arrayDeque;
