@@ -1,6 +1,7 @@
 package com.epam.collections.queue;
 
 import java.util.ArrayDeque;
+import java.util.Objects;
 import java.util.Queue;
 
     public class ArrayDequeCreator {
@@ -12,12 +13,12 @@ import java.util.Queue;
                 secondQueue.add(arrayDeque.poll());
 
                 // Player 1 puts two cards from the beginning of their queue into the ArrayDeque.
-                arrayDeque.add(firstQueue.poll());
-                arrayDeque.add(firstQueue.poll());
+                arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
+                arrayDeque.add(Objects.requireNonNull(firstQueue.poll()));
 
                 // Player 2 puts two cards from the beginning of their queue into the ArrayDeque.
-                arrayDeque.add(secondQueue.poll());
-                arrayDeque.add(secondQueue.poll());
+                arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
+                arrayDeque.add(Objects.requireNonNull(secondQueue.poll()));
             }
 
             return arrayDeque;
