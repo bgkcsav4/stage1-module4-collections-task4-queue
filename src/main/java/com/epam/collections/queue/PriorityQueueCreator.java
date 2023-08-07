@@ -2,18 +2,19 @@ package com.epam.collections.queue;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+
 public class PriorityQueueCreator {
-    public ArrayDeque<Integer> createArrayDeque(Queue<Integer> firstQueue, Queue<Integer> secondQueue) {
-        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+    public PriorityQueue<String> createPriorityQueue(List<String> firstList, List<String> secondList) {
+        PriorityQueue<String> priorityQueue = new PriorityQueue<>((a, b) -> b.compareTo(a));
 
-        while (!firstQueue.isEmpty() && !secondQueue.isEmpty()) {
-            arrayDeque.add(firstQueue.poll()); // Player 1 takes the top card from the ArrayDeque and adds to their queue.
-            arrayDeque.add(secondQueue.poll()); // Player 2 takes the top card from the ArrayDeque and adds to their queue.
-            arrayDeque.add(firstQueue.poll()); // Player 1 puts two cards from the beginning of their queue into the ArrayDeque.
-            arrayDeque.add(firstQueue.poll());
-            arrayDeque.add(secondQueue.poll()); // Player 2 puts two cards from the beginning of their queue into the ArrayDeque.
-            arrayDeque.add(secondQueue.poll());
-        }
+        priorityQueue.addAll(firstList);
+        priorityQueue.addAll(secondList);
 
-        return arrayDeque;
-    }}
+        return priorityQueue;
+    }
+
+}
+
